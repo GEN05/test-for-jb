@@ -1,14 +1,22 @@
 <#-- @ftlvariable name="bookForm" type="jb.gusarov.test.form.BookForm" -->
 
-<#import "/spring.ftl" as spring>
 <#import "commons.ftlh" as c>
 
 <@c.page>
     <div class="form">
-        <div class="header">Take book</div>
+        <div class="header">Add book to the library</div>
         <div class="body">
             <form method="post" action="">
-                <input type="hidden" name="action" value="writePost"/>
+                <input type="hidden" name="action" value="addBook"/>
+                <div class="field">
+                    <div class="name">
+                        <label for="cipher">Cipher</label>
+                    </div>
+                    <div class="value">
+                        <input id="cipher" name="cipher" value="${bookForm.cipher!}"/>
+                    </div>
+                    <@c.error "bookForm.cipher"/>
+                </div>
                 <div class="field">
                     <div class="name">
                         <label for="title">Title</label>
@@ -28,7 +36,7 @@
                     <@c.error "bookForm.author"/>
                 </div>
                 <div class="button-field">
-                    <input type="submit" value="Write">
+                    <input type="submit" value="Add book">
                 </div>
             </form>
         </div>

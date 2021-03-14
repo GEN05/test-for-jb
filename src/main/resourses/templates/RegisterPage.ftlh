@@ -19,7 +19,7 @@
                 </div>
                 <div class="field">
                     <div class="name">
-                        <label for="login">Surname</label>
+                        <label for="surname">Surname</label>
                     </div>
                     <div class="value">
                         <input id="surname" name="surname" value="${registerForm.surname!}"/>

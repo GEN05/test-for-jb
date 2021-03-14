@@ -2,5 +2,13 @@
 <#import "commons.ftlh" as c>
 
 <@c.page>
-    Hello!
+    <#if books?size==0>
+        No data
+    <#else>
+        <tbody>
+        <#list books as book>
+            <@c.book book=book/>
+        </#list>
+        </tbody>
+    </#if>
 </@c.page>

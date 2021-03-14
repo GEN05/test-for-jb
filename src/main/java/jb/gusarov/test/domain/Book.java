@@ -24,6 +24,9 @@ public class Book {
     private List<User> users;
 
     @NotNull
+    private long cipher;
+
+    @NotNull
     @NotEmpty
     @Size(min = 1, max = 60)
     private String title;
@@ -75,6 +78,14 @@ public class Book {
 
     public void setCreationTime(Date creationTime) {
         this.creationTime = creationTime;
+    }
+
+    public long getCipher() {
+        return cipher;
+    }
+
+    public void setCipher(long cipher) {
+        this.cipher = cipher;
     }
 
     public void addUser(User user) {

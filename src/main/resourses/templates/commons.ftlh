@@ -22,21 +22,22 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/users/all">Users</a></li>
-                <#--                <#if user??>-->
                 <li><a href="/addBook">Add book</a></li>
-                <li><a href="/books">Books</a></li>
-                <#--                </#if>-->
+                <li><a href="/books">My books</a></li>
+                <li><a href="/takeBook">Take book</a></li>
+                <li><a href="/deleteBook">Delete book</a></li>
+                <li><a href="/changeCipher">Change cipher</a></li>
             </ul>
             <ul>
                 <li></li>
             </ul>
             <ul>
                 <#if user??>
-                <li>${user.name}</li>
-                <li><a href="/logout">Logout</a></li>
+                    <li>${user.surname} ${user.name}</li>
+                    <li><a href="/logout">Logout</a></li>
                 <#else>
-                <li><a href="/enter">Enter</a></li>
-                <li><a href="/register">Register</a></li>
+                    <li><a href="/enter">Enter</a></li>
+                    <li><a href="/register">Register</a></li>
                 </#if>
             </ul>
         </nav>
@@ -72,25 +73,13 @@
 <#-- @ftlvariable name="book" type="jb.gusarov.test.domain.Book" -->
     <article>
         <div class="title"><a style="text-decoration: none; color:var(--caption-color)"
-                              href="/book/${book.id?string}">${book.title}</a></div>
-        <div class="information">By ${book.users.name}, ${book.creationTime}</div>
-        <div class="body">${book.author}</div>
-        <ul class="attachment">
-            <li>Announcement of <a href="#">Codeforces Round #510 (Div. 1)</a></li>
-            <li>Announcement of <a href="#">Codeforces Round #510 (Div. 2)</a></li>
-        </ul>
-        <div class="footer">
-            <div class="left">
-                <img src="<@spring.url '/img/voteup.png'/>" title="Vote Up" alt="Vote Up"/>
-                <span class="positive-score">+173</span>
-                <img src="<@spring.url '/img/votedown.png'/>" title="Vote Down" alt="Vote Down"/>
-            </div>
-            <div class="right">
-                <img src="<@spring.url '/img/date_16x16.png'/>" title="Publish Time" alt="Publish Time"/>
-                ${book.creationTime}
-                <img src="<@spring.url '/img/comments_16x16.png'/>" title="Comments" alt="Comments"/>
-                <a href="/post/${book.id}">${book.author}</a>
-            </div>
+                              href="/book/${book.id?string}">${book.cipher}</a></div>
+        <div class="information">By ${book.author}, ${book.creationTime}</div>
+        <div class="body">${book.title}</div>
+        <div class="users">
+            <#list book.users as user>
+                <p>${user.surname}</p>
+            </#list>
         </div>
     </article>
 </#macro>

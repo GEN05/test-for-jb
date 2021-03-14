@@ -15,6 +15,9 @@ public class BookForm {
     @Size(min = 2, max = 60)
     private String author;
 
+    @NotNull
+    private long cipher;
+
     public String getTitle() {
         return title;
     }
@@ -29,5 +32,13 @@ public class BookForm {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public long getCipher() {
+        return cipher;
+    }
+
+    public void setCipher(long cipher) {
+        this.cipher = cipher;
     }
 }

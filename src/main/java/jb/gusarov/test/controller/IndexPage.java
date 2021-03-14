@@ -19,7 +19,7 @@ public class IndexPage extends Page {
     @Guest
     @GetMapping({"", "/"})
     public String index(Model model) {
-        model.addAttribute("posts", bookService.findAll());
+        model.addAttribute("books", bookService.findAll());
         return "IndexPage";
     }
 

@@ -53,15 +53,7 @@ public class BookPage extends Page {
             putMessage(httpSession, "There is no such book");
             return "redirect:/";
         }
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("book", book);
-            return "BookPage";
-        }
-        if (getUser(httpSession) == null) {
-            putMessage(httpSession, "Comments available only for logged in users");
-            return "redirect:/";
-        }
-
+        bindingResult.hasErrors();
         model.addAttribute("book", book);
         return "BookPage";
     }

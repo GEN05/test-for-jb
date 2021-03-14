@@ -2,7 +2,6 @@ package jb.gusarov.test.service;
 
 import jb.gusarov.test.domain.Book;
 import jb.gusarov.test.domain.User;
-import jb.gusarov.test.form.BookForm;
 import jb.gusarov.test.form.UserCredentials;
 import jb.gusarov.test.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -42,11 +41,10 @@ public class UserService {
         return userRepository.findAllByOrderByIdDesc();
     }
 
-    public void addBook(User user, BookForm bookForm) {
-        Book book = new Book();
+    public void addBook(User user, Book book) {
         book.addUser(user);
-        book.setTitle(bookForm.getTitle());
-        book.setAuthor(bookForm.getAuthor());
+        book.setTitle(book.getTitle());
+        book.setAuthor(book.getAuthor());
         user.addBook(book);
         userRepository.save(user);
     }
